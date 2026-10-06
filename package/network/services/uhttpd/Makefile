@@ -116,6 +116,11 @@ define Package/uhttpd-mod-ucode/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/uhttpd_ucode.so $(1)/usr/lib/
 endef
 
+TARGET_CFLAGS += -Wno-error=stringop-overread
+ifneq ($(CONFIG_USE_GLIBC),)
+  TARGET_CFLAGS += -D_DEFAULT_SOURCE
+endif
+
 
 $(eval $(call BuildPackage,uhttpd))
 $(eval $(call BuildPackage,uhttpd-mod-lua))
