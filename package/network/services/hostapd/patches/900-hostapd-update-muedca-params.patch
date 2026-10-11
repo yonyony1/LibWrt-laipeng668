@@ -80,19 +80,19 @@
  #endif /* CONFIG_IEEE80211AX */
  #ifdef CONFIG_IEEE80211BE
  	case EVENT_MLD_INTERFACE_FREED:
---- a/src/ap/hostapd.c
-+++ b/src/ap/hostapd.c
-@@ -4680,6 +4680,10 @@ static int hostapd_fill_csa_settings(str
- 	hapd->cs_count = settings->cs_count;
- 	hapd->cs_block_tx = settings->block_tx;
+#--- a/src/ap/hostapd.c
+#+++ b/src/ap/hostapd.c
+#@@ -4680,6 +4680,10 @@ static int #hostapd_fill_csa_settings(str
+# 	hapd->cs_count = settings->cs_count;
+# 	hapd->cs_block_tx = settings->block_tx;
  
-#+	 /* reset MU-EDCA and WME EDCA parameter set count */
-#+	 hapd->iface->conf->he_mu_edca.he_qos_info &= 0xfff0;
+#+	 /* reset MU-EDCA and WME EDCA parameter set #count */
+#+	 hapd->iface->conf->he_mu_edca.he_qos_info &= #0xfff0;
 #+	 hapd->parameter_set_count = 0;
-+
- 	ret = hostapd_build_beacon_data(hapd, &settings->beacon_csa);
- 	if (ret) {
- 		free_beacon_data(&settings->beacon_after);
+#+
+# 	ret = hostapd_build_beacon_data(hapd, #&settings->beacon_csa);
+# 	if (ret) {
+# 		free_beacon_data(&settings->beacon_after);
 --- a/src/ap/ieee802_11_he.c
 +++ b/src/ap/ieee802_11_he.c
 @@ -19,6 +19,7 @@
