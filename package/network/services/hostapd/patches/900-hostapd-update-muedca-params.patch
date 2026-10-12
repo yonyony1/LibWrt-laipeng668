@@ -95,7 +95,7 @@
 # 		free_beacon_data(&settings->beacon_after);
 --- a/src/ap/ieee802_11_he.c
 +++ b/src/ap/ieee802_11_he.c
-@@ -19,6 +19,7 @@
+#@@ -19,6 +19,7 @@
  #include "sta_info.h"
  #include "ieee802_11.h"
  #include "dfs.h"
