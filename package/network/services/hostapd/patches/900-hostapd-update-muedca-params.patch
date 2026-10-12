@@ -74,12 +74,12 @@
 # 			   hapd->conf->iface);
 # 		hostapd_event_color_change(hapd, true);
 #		break;
-+	case EVENT_UPDATE_MUEDCA_PARAMS:
-+		 hostapd_event_update_muedca_params(hapd, &data->update_muedca);
-+		 break;
- #endif /* CONFIG_IEEE80211AX */
- #ifdef CONFIG_IEEE80211BE
- 	case EVENT_MLD_INTERFACE_FREED:
+#+	case EVENT_UPDATE_MUEDCA_PARAMS:
+#+		 hostapd_event_update_muedca_params(hapd, #&data->update_muedca);
+#+		 break;
+#endif /* CONFIG_IEEE80211AX */
+#ifdef CONFIG_IEEE80211BE
+# 	case EVENT_MLD_INTERFACE_FREED:
 #--- a/src/ap/hostapd.c
 #+++ b/src/ap/hostapd.c
 #@@ -4680,6 +4680,10 @@ static int #hostapd_fill_csa_settings(str
